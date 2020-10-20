@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>                  //contains strcmp(),strcpy(),strlen(),etc
-#include<ctype.h>                   //contains toupper(), tolower()
+#include<string.h>                  
+#include<ctype.h>                   
 #include<time.h>
 
 char mypass[10] = {"admin"};
