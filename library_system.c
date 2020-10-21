@@ -80,37 +80,11 @@ void Password()
         gotoxy (50,0);
         printf("Welcome User\n");
         printf("Enter choice: \n");
-        switch(getch())
-        {
-            case '1':
-            add();
-            break;
-            
-            case '2':
-            delete();
-            break;
-
-            case '3':
-            search();
-            break;
-            
-            case '4':
-            issue();
-            break;
-            
-            case '5':
-            view();
-            break;
-            
-            case '6':
-            edit();
-            break;
-            }
+    }
     else
     {
         printf("Okay then, if you don't wanna play by my rules, I'll just quit\n");
     }
-}
 }
 
 void mainmenu()
