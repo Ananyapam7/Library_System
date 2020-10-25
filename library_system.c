@@ -3,7 +3,6 @@
 #include<string.h>                  
 #include<ctype.h>                   
 #include<time.h>
-#include <openssl/sha.h>
 
 char mypass_admin[10] = {"admin"};
 char mypass_user[10] = {"user"};
@@ -26,15 +25,13 @@ struct meroDate
 struct book
 {
     int id;
-    char stname[20];
     char name[20];
     char Author[20];
     int quantity;
     float Price;
-    int count;
     int rackno;
     int floorno;
-    char *cat;
+    char publisher[20];
     struct meroDate issued;
     struct meroDate duedate;
 };
@@ -53,10 +50,8 @@ void issue(void);
 void view(void);
 void closeapplication(void);
 int  getdata();
-int  checkid(int);
 void Password();
 void issuerecord();
-void loaderanim();
 
 
 void main()
@@ -118,7 +113,12 @@ printf("      6. Edit Book's Record");
 gotoxy(20,17);
 printf("      7. Close Application");
 gotoxy(20,19);
-printf("Enter your choice: ");
+printf("Enter your choice: \n");
+
+scanf("%d", choice);
+
+
+
 }
 
 void mainmenu_user()
