@@ -28,9 +28,6 @@ struct book
     char name[20];
     char Author[20];
     int quantity;
-    float Price;
-    int rackno;
-    int floorno;
     char publisher[20];
     struct meroDate issued;
     struct meroDate duedate;
