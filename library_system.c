@@ -44,6 +44,11 @@ void add(void);
 void delete(void);
 void edit(void);
 
+void add()
+{
+
+}
+
 
 void issue_book(void);
 void return_book(void);
@@ -114,12 +119,21 @@ case 1:
     add();
     break;
 
+case 2:
+    delete();
+    break;
+
+case 3:
+    edit();
+    break;
+
+case 4:
+    closeapplication();
+    break;
+
 default:
     break;
 }
-
-
-
 }
 
 void mainmenu_user()
@@ -136,5 +150,25 @@ gotoxy(20,9);
 printf("3. Close Application");
 gotoxy(20,11);
 printf("Enter your choice: \n");
+
+scanf("%d", choice);
+
+switch (choice)
+{
+case 1:
+    issue_book();
+    break;
+
+case 2:
+    return_book();
+    break;
+
+case 3:
+    closeapplication();
+    break;
+
+default:
+    break;
+}
 
 }
