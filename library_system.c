@@ -97,17 +97,26 @@ int i;
 gotoxy(40,3);
 printf(" MAIN MENU FOR ADMIN");
 gotoxy(20,5);
-printf("      1. Add Books");
+printf("1. Add Books");
 gotoxy(20,7);
-printf("      2. Delete books");
+printf("2. Delete books");
 gotoxy(20,9);
-printf("      3. Edit Book's Record");
+printf("3. Edit Book's Record");
 gotoxy(20,11);
-printf("      4. Close Application");
+printf("4. Close Application");
 gotoxy(20,13);
 printf("Enter your choice: \n");
 
 scanf("%d", choice);
+switch (choice)
+{
+case 1:
+    add();
+    break;
+
+default:
+    break;
+}
 
 
 
@@ -120,11 +129,11 @@ int i;
 gotoxy(40,3);
 printf(" MAIN MENU FOR USER");
 gotoxy(20,5);
-printf("      1. Issue Books");
+printf("1. Issue Books");
 gotoxy(20,7);
-printf("      2. Return Books");
+printf("2. Return Books");
 gotoxy(20,9);
-printf("      3. Close Application");
+printf("3. Close Application");
 gotoxy(20,11);
 printf("Enter your choice: \n");
 
