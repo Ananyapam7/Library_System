@@ -14,9 +14,26 @@ struct book
     float price;
 };
 
+
+
 // void add()
 // {
+//     printf("\nEnter details of book %d\n\n", i+1);
 
+//     printf("Enter ID: ");
+//     scanf("%d", &arr_book[i].id);
+
+//     printf("Enter Name: ");
+//     scanf("%s", arr_book[i].name);
+
+//     printf("Enter Author: ");
+//     scanf("%s", arr_book[i].author);
+
+//     printf("Enter Quantity: ");
+//     scanf("%d", &arr_book[i].quantity);
+
+//     printf("Enter Price: ");
+//     scanf("%f", &arr_book[i].price);
 // }
 
 // void show()
@@ -31,7 +48,29 @@ struct book
 
 // void search()
 // {
-
+//     int attr,i;
+//     printf("\nUsing what attribute do you want to search:\n");
+//     printf("1. ID\n");
+//     printf("2. Name\n");
+//     printf("3. Author\n");
+//     scanf("%d",&attr);
+//     switch (attr)
+//     {
+//     case 1:
+//         printf("Hello");
+//         break;
+    
+//     default:
+//         break;
+//     }
+//     // for(i=0;i<n;++i)
+//     //     if([i]==srch)
+//     //         break;
+     
+//     // if(i<n)
+//     //     printf("Element found at index %d",i);
+//     // else
+//     //     printf("Element not found");
 // }
 
 // void issue_book()
@@ -83,6 +122,47 @@ int main()
         printf("%d\t%s\t%s\t%d\t\t%.2f\n",
         arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price);
     }
-
+    int choice_menu;
+    while(choice_menu!=7)
+    {
+    printf("Library Management System\n");
+    printf("1. Add Books\n");
+    printf("2. Remove Books\n");
+    printf("3. Show Books\n");
+    printf("4. Search Books\n");
+    printf("5. Issue Books\n");
+    printf("6. Return Books\n");
+    printf("7. Return Books\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice_menu);
+    switch (choice_menu)
+    {
+    case 1:
+        i = INITIAL-1;
+        char choice_add = 'y';
+        while(choice_add == 'y')
+        {
+            i++;
+            printf("\nEnter details of book %d\n\n", i+1);
+            printf("Enter ID: ");
+            scanf("%d", &arr_book[i].id);
+            printf("Enter Name: ");
+            scanf("%s", arr_book[i].name);
+            printf("Enter Author: ");
+            scanf("%s", arr_book[i].author);
+            printf("Enter Quantity: ");
+            scanf("%d", &arr_book[i].quantity);
+            printf("Enter Price: ");
+            scanf("%f", &arr_book[i].price);
+            printf("Continue adding books? (y/n):");
+            scanf("%s", &choice_add);
+        }
+        break;
+    
+    default:
+        break;
+    }
+    
+    }
     return 0;
 }
