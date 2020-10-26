@@ -59,40 +59,40 @@ int main()
     printf("How many books do you want to add: ");
     scanf("%d", &INITIAL);
     struct book arr_book[MAX];
-    int i; //the most important varaible, keeps track of the count of books
+    int num_books; //the most important varaible, keeps track of the count of books
 
-    for(i = 0; i < INITIAL; i++ )
+    for(num_books = 0; num_books < INITIAL; num_books++ )
     {
-        printf("\nEnter details of book %d\n\n", i+1);
+        printf("\nEnter details of book %d\n\n", num_books+1);
 
         printf("Enter ID: ");
-        scanf("%d", &arr_book[i].id);
+        scanf("%d", &arr_book[num_books].id);
 
         printf("Enter Name: ");
-        scanf("%s", arr_book[i].name);
+        scanf("%s", arr_book[num_books].name);
 
         printf("Enter Author: ");
-        scanf("%s", arr_book[i].author);
+        scanf("%s", arr_book[num_books].author);
 
         printf("Enter Quantity: ");
-        scanf("%d", &arr_book[i].quantity);
+        scanf("%d", &arr_book[num_books].quantity);
 
         printf("Enter Price: ");
-        scanf("%f", &arr_book[i].price);
-
-        // strcpy(arr_book[i].status,"Available");
+        scanf("%f", &arr_book[num_books].price);
     }
 
     printf("\n");
 
     printf("ID\tName\tAuthor\tQuantity\tPrice\n");
 
-    for(i = 0; i < INITIAL; i++ )
+    for(int num_show = 0; num_show < INITIAL; num_show++ )
     {
         printf("%d\t%s\t%s\t%d\t\t%.2f\n",
-        arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price);
+        arr_book[num_show].id,arr_book[num_show].name,arr_book[num_show].author, arr_book[num_show].quantity, arr_book[num_show].price);
     }
     int choice_menu;
+    int issue_id;
+    char choice_add;
     while(choice_menu!=7)
     {
     printf("\t\t\t\t\t\tLibrary Management System\n");
@@ -105,26 +105,24 @@ int main()
     printf("7. Quit\n");
     printf("Enter your choice: ");
     scanf("%d", &choice_menu);
-    int issue_id;
     switch (choice_menu)
     {
     case 1:
-        i = INITIAL-1;
-        char choice_add = 'y';
+        choice_add = 'y';
         while(choice_add == 'y')
         {
-            i++;
-            printf("\nEnter details of book %d\n\n", i+1);
+            num_books = num_books+1;
+            printf("\nEnter details of book %d\n\n", num_books+1);
             printf("Enter ID: ");
-            scanf("%d", &arr_book[i].id);
+            scanf("%d", &arr_book[num_books].id);
             printf("Enter Name: ");
-            scanf("%s", arr_book[i].name);
+            scanf("%s", arr_book[num_books].name);
             printf("Enter Author: ");
-            scanf("%s", arr_book[i].author);
+            scanf("%s", arr_book[num_books].author);
             printf("Enter Quantity: ");
-            scanf("%d", &arr_book[i].quantity);
+            scanf("%d", &arr_book[num_books].quantity);
             printf("Enter Price: ");
-            scanf("%f", &arr_book[i].price);
+            scanf("%f", &arr_book[num_books].price);
             // strcpy(arr_book[i].status,"Available");
             printf("Continue adding books? (y/n):");
             scanf("%s", &choice_add);
@@ -133,7 +131,7 @@ int main()
     
     case 3:
         printf("ID\tName\tAuthor\tQuantity\tPrice\n");
-        for(int j = 0; j < i; j++)
+        for(int j = 0; j < num_books; j++)
         {
             printf("%d\t%s\t%s\t%d\t\t%.2f\n",
             arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
@@ -143,18 +141,18 @@ int main()
     case 5:
         printf("Enter the ID of the book which you want to issue: ");
         scanf("%d",&issue_id);
-        for (int k = 0; k<i;k++)
+        for (int k = 0; k<num_books;k++)
         {
             if (arr_book[k].id == issue_id && arr_book[k].quantity>0)
             {
-                arr_book[i].quantity = arr_book[i].quantity-1;
+                arr_book[num_books].quantity = arr_book[num_books].quantity-1;
                 printf("ID\tName\tAuthor\tQuantity\tPrice\n");
                 printf("%d\t%s\t%s\t%d\t\t%.2f\n",
                 arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
                 printf("Book Issued Successfully!\n");
                 printf("Return date :");
                 printf("%d",3*arr_book[k].quantity);
-                printf(" days");
+                printf(" days\n");
             }
             else
             {
