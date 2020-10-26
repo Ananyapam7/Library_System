@@ -12,6 +12,7 @@ struct book
     char author[20];
     int quantity;
     float price;
+    char status[20];
 };
 
 
@@ -111,16 +112,18 @@ int main()
 
         printf("Enter Price: ");
         scanf("%f", &arr_book[i].price);
+
+        strcpy(arr_book[i].status,"Available");
     }
 
     printf("\n");
 
-    printf("ID\tName\tAuthor\tQuantity\tPrice\n");
+    printf("ID\tName\tAuthor\tQuantity\tPrice\tStatus\n");
 
     for(i = 0; i < INITIAL; i++ )
     {
-        printf("%d\t%s\t%s\t%d\t\t%.2f\n",
-        arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price);
+        printf("%d\t%s\t%s\t%d\t\t%.2f\t%s\n",
+        arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price, arr_book[i].status);
     }
     int choice_menu;
     while(choice_menu!=7)
@@ -132,7 +135,7 @@ int main()
     printf("4. Search Books\n");
     printf("5. Issue Books\n");
     printf("6. Return Books\n");
-    printf("7. Return Books\n");
+    printf("7. Quit\n");
     printf("Enter your choice: ");
     scanf("%d", &choice_menu);
     switch (choice_menu)
@@ -154,16 +157,18 @@ int main()
             scanf("%d", &arr_book[i].quantity);
             printf("Enter Price: ");
             scanf("%f", &arr_book[i].price);
+            strcpy(arr_book[i].status,"Available");
             printf("Continue adding books? (y/n):");
             scanf("%s", &choice_add);
         }
         break;
     
     case 3:
-        for(int j = 0; j < i; j++ )
+        printf("ID\tName\tAuthor\tQuantity\tPrice\tStatus\n");
+        for(int j = 0; j < i; j++)
         {
-            printf("%d\t%s\t%s\t%d\t\t%.2f\n",
-            arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
+            printf("%d\t%s\t%s\t%d\t\t%.2f\t%s\n",
+            arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price, arr_book[j].status);
         }
         break;
     
