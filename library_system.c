@@ -3,7 +3,7 @@
 #include<stdlib.h>                  
 #include<ctype.h>                   
 #include<time.h>
-#define MAX 3
+// #define MAX 3
 
 struct book
 {
@@ -16,11 +16,11 @@ struct book
 
 int main()
 {
-    // int MAX;
+    int MAX;
     printf("\t\t\t\t\t\tLibrary Setup\n");
     printf("\t\tYou need to add some preliminary books to your library to continue further\n\n");
-    printf("How many books do you want to add\n");
-    // scanf("%d", MAX);
+    printf("How many books do you want to add: ");
+    scanf("%d", &MAX);
     struct book arr_book[MAX];
     int i;
 
@@ -28,7 +28,7 @@ int main()
     {
         printf("\nEnter details of book %d\n\n", i+1);
 
-        printf("EnterID: ");
+        printf("Enter ID: ");
         scanf("%d", &arr_book[i].id);
 
         printf("Enter Name: ");
