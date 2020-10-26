@@ -161,7 +161,7 @@ int main()
     
     case 3:
         printf("ID\tName\tAuthor\tQuantity\tPrice\n");
-        for(int j = 0; j < i; j++)
+        for(int j = 0; j < i+1; j++)
         {
             printf("%d\t%s\t%s\t%d\t\t%.2f\n",
             arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
