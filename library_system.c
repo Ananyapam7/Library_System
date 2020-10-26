@@ -11,9 +11,9 @@ struct book
     char name[20];
     char author[20];
     int quantity;
-    float price;
+    float price;  
 };
-
+// hello bro
 // void add()
 // {
 
