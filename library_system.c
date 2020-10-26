@@ -159,10 +159,18 @@ int main()
         }
         break;
     
+    case 3:
+        for(int j = 0; j < i; j++ )
+        {
+            printf("%d\t%s\t%s\t%d\t\t%.2f\n",
+            arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
+        }
+        break;
+    
     default:
         break;
     }
-    
+
     }
     return 0;
 }
