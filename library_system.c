@@ -12,30 +12,7 @@ struct book
     char author[20];
     int quantity;
     float price;
-    // char status[20];
 };
-
-
-
-// void add()
-// {
-//     printf("\nEnter details of book %d\n\n", i+1);
-
-//     printf("Enter ID: ");
-//     scanf("%d", &arr_book[i].id);
-
-//     printf("Enter Name: ");
-//     scanf("%s", arr_book[i].name);
-
-//     printf("Enter Author: ");
-//     scanf("%s", arr_book[i].author);
-
-//     printf("Enter Quantity: ");
-//     scanf("%d", &arr_book[i].quantity);
-
-//     printf("Enter Price: ");
-//     scanf("%f", &arr_book[i].price);
-// }
 
 // void remove()
 // {
@@ -67,11 +44,6 @@ struct book
 //     //     printf("Element found at index %d",i);
 //     // else
 //     //     printf("Element not found");
-// }
-
-// void issue_book()
-// {
-
 // }
 
 // void return_book()
