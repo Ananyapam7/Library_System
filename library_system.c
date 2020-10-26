@@ -87,7 +87,7 @@ int main()
     printf("How many books do you want to add: ");
     scanf("%d", &INITIAL);
     struct book arr_book[MAX];
-    int i;
+    int i; //the most important varaible, keeps track of the count of books
 
     for(i = 0; i < INITIAL; i++ )
     {
@@ -123,7 +123,7 @@ int main()
     int choice_menu;
     while(choice_menu!=7)
     {
-    printf("Library Management System\n");
+    printf("\t\t\t\t\t\tLibrary Management System\n");
     printf("1. Add Books\n");
     printf("2. Remove Books\n");
     printf("3. Show Books\n");
@@ -161,7 +161,7 @@ int main()
     
     case 3:
         printf("ID\tName\tAuthor\tQuantity\tPrice\n");
-        for(int j = 0; j < i+1; j++)
+        for(int j = 0; j < i; j++)
         {
             printf("%d\t%s\t%s\t%d\t\t%.2f\n",
             arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
