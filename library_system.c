@@ -12,7 +12,7 @@ struct book
     char author[20];
     int quantity;
     float price;
-    char status[20];
+    // char status[20];
 };
 
 
@@ -35,11 +35,6 @@ struct book
 
 //     printf("Enter Price: ");
 //     scanf("%f", &arr_book[i].price);
-// }
-
-// void show()
-// {
-
 // }
 
 // void remove()
@@ -113,17 +108,17 @@ int main()
         printf("Enter Price: ");
         scanf("%f", &arr_book[i].price);
 
-        strcpy(arr_book[i].status,"Available");
+        // strcpy(arr_book[i].status,"Available");
     }
 
     printf("\n");
 
-    printf("ID\tName\tAuthor\tQuantity\tPrice\tStatus\n");
+    printf("ID\tName\tAuthor\tQuantity\tPrice\n");
 
     for(i = 0; i < INITIAL; i++ )
     {
-        printf("%d\t%s\t%s\t%d\t\t%.2f\t%s\n",
-        arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price, arr_book[i].status);
+        printf("%d\t%s\t%s\t%d\t\t%.2f\n",
+        arr_book[i].id,arr_book[i].name,arr_book[i].author, arr_book[i].quantity, arr_book[i].price);
     }
     int choice_menu;
     while(choice_menu!=7)
@@ -138,6 +133,7 @@ int main()
     printf("7. Quit\n");
     printf("Enter your choice: ");
     scanf("%d", &choice_menu);
+    int issue_id;
     switch (choice_menu)
     {
     case 1:
@@ -157,21 +153,42 @@ int main()
             scanf("%d", &arr_book[i].quantity);
             printf("Enter Price: ");
             scanf("%f", &arr_book[i].price);
-            strcpy(arr_book[i].status,"Available");
+            // strcpy(arr_book[i].status,"Available");
             printf("Continue adding books? (y/n):");
             scanf("%s", &choice_add);
         }
         break;
     
     case 3:
-        printf("ID\tName\tAuthor\tQuantity\tPrice\tStatus\n");
+        printf("ID\tName\tAuthor\tQuantity\tPrice\n");
         for(int j = 0; j < i; j++)
         {
-            printf("%d\t%s\t%s\t%d\t\t%.2f\t%s\n",
-            arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price, arr_book[j].status);
+            printf("%d\t%s\t%s\t%d\t\t%.2f\n",
+            arr_book[j].id,arr_book[j].name,arr_book[j].author, arr_book[j].quantity, arr_book[j].price);
         }
         break;
     
+    case 5:
+        printf("Enter the ID of the book which you want to issue: ");
+        scanf("%d",&issue_id);
+        for (int k = 0; k<i;k++)
+        {
+            if (arr_book[k].id == issue_id && arr_book[k].quantity>0)
+            {
+                arr_book[i].quantity = arr_book[i].quantity-1;
+                printf("ID\tName\tAuthor\tQuantity\tPrice\n");
+                printf("%d\t%s\t%s\t%d\t\t%.2f\n",
+                arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
+                printf("Book Issued Successfully!\n");
+                printf("Return date :");
+                printf("%d",3*arr_book[k].quantity);
+                printf(" days");
+            }
+            else
+            {
+                printf("Sorry Book Not Availabe\n");
+            }
+        }
     default:
         break;
     }
