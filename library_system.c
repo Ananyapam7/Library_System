@@ -57,6 +57,7 @@ int main()
     char choice_add; // the choice variable to continue adding books, takes values y/n
     int choice_search; // the choice against which attribute the user wants to search the books, ID, name and author
     int issue_id; // user input of the id of the book which he wants to issue
+    int return_id; // user input of the id of the book which he wants to return
     int remove_id; // user input of the id of the book which he wants to remove
     int k =0; // the variable used throughout to iterate over the structure array
     int found =0; // the variable used throughout to indicate that a book is present or not
@@ -218,6 +219,8 @@ int main()
         scanf("%d",&issue_id);
         k =0;
         found =0;
+        for (k=0;k<num_books;k++)
+        {
         while (arr_book[k].id == issue_id && arr_book[k].quantity>0)
         {
             arr_book[k].quantity--;
@@ -227,15 +230,35 @@ int main()
             printf("Book Issued Successfully!\n");
             printf("Return date :");
             printf("%d",3*arr_book[k].quantity);
-            printf(" days\n");
-            found =1;
-            k++;    
+            printf(" days\n\n");
+            found =1;   
+        }
         }
         if (found ==0)
         {
             printf("Sorry book not found\n");
         }
         break;
+
+    case 6:
+        printf("Enter the ID of the book which you want to return : ");
+        scanf("%d",&return_id);
+        found =0;
+        for (k=0;k<num_books;k++)
+        {
+        if (arr_book[k].id == return_id)
+        {
+            arr_book[k].quantity++;
+            printf("Successfully returned the book\n");
+            found =1;    
+        }
+        }
+        if (found ==0)
+        {
+            printf("Sorry this book ID does not belong to our library\n");
+        }
+        break;
+    
     default:
         break;
     }
