@@ -141,23 +141,24 @@ int main()
     case 5:
         printf("Enter the ID of the book which you want to issue: ");
         scanf("%d",&issue_id);
-        for (int k = 0; k<num_books;k++)
+        int k =0;
+        int issue_found =0;
+        while (arr_book[k].id == issue_id && arr_book[k].quantity>0)
         {
-            if (arr_book[k].id == issue_id && arr_book[k].quantity>0)
-            {
-                arr_book[num_books].quantity = arr_book[num_books].quantity-1;
-                printf("ID\tName\tAuthor\tQuantity\tPrice\n");
-                printf("%d\t%s\t%s\t%d\t\t%.2f\n",
-                arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
-                printf("Book Issued Successfully!\n");
-                printf("Return date :");
-                printf("%d",3*arr_book[k].quantity);
-                printf(" days\n");
-            }
-            else
-            {
-                printf("Sorry Book Not Availabe\n");
-            }
+            arr_book[k].quantity--;
+            printf("ID\tName\tAuthor\tQuantity\tPrice\n");
+            printf("%d\t%s\t%s\t%d\t\t%.2f\n",
+            arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
+            printf("Book Issued Successfully!\n");
+            printf("Return date :");
+            printf("%d",3*arr_book[k].quantity);
+            printf(" days\n");
+            issue_found =1;
+            k++;    
+        }
+        if (issue_found ==0)
+        {
+            printf("Sorry book not found");
         }
     default:
         break;
