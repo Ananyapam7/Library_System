@@ -99,9 +99,10 @@ int main()
     case 2:
         printf("Enter ID of the book you want to remove: ");
         scanf("%d", &remove_id);
-        k=0;
         found = 0;
-        while (remove_id == arr_book[k].id)
+        for (k=0;k<num_books;k++)
+        {
+        if (remove_id == arr_book[k].id)
             {
                 printf("Found the book you wanted to remove\n\n");
                 printf("ID\tName\tAuthor\tQuantity\tPrice\n");
@@ -116,10 +117,11 @@ int main()
                 found =1;
                 k++;
             }
-            if (found ==0)
-            {
-                printf("Sorry book not found");
-            }
+        if (found ==0)
+        {
+            printf("Sorry book not found\n");
+        }
+        }
 
 
     case 3:
@@ -139,19 +141,20 @@ int main()
         scanf("%d", &choice_search);
         if (choice_search ==1)
         {
-            k = 0;
             found =0;
             int search_id;
             printf("Enter ID :");
             scanf("%d", &search_id);
-            while (arr_book[k].id == search_id && arr_book[k].quantity>0)
+            for (k=0;k<num_books;k++)
+            {
+            if (arr_book[k].id == search_id && arr_book[k].quantity>0)
             {
                 printf("Found the book you were looking for!\n\n");
                 printf("ID\tName\tAuthor\tQuantity\tPrice\n");
                 printf("%d\t%s\t%s\t%d\t\t%.2f\n",
                 arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
-                found =1;
-                k++;    
+                found =1;    
+            }
             }
             if (found ==0)
             {
@@ -163,20 +166,21 @@ int main()
             char search_name[20];
             printf("Enter the name of the book you were looking for :");
             scanf("%s", search_name);
-            k = 0;
             found = 0;
-            while (strcmp(search_name, arr_book[k].name)==0 && arr_book[k].quantity>0)
+            for (k=0;k<num_books;k++)
+            {
+            if (strcmp(search_name, arr_book[k].name)==0 && arr_book[k].quantity>0)
             {
                 printf("Found the book you were looking for!\n\n");
                 printf("ID\tName\tAuthor\tQuantity\tPrice\n");
                 printf("%d\t%s\t%s\t%d\t\t%.2f\n",
                 arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
                 found =1;
-                k++;
+            }
             }
             if (found ==0)
             {
-                printf("Sorry book not found");
+                printf("Sorry book not found\n");
             }
         }
 
@@ -185,20 +189,21 @@ int main()
             char search_author[20];
             printf("Enter the name of the book you were looking for :");
             scanf("%s", search_author);
-            k = 0;
             found = 0;
-            while (strcmp(search_author, arr_book[k].author)==0 && arr_book[k].quantity>0)
+            for (k=0;k<num_books;k++)
+            {
+            if (strcmp(search_author, arr_book[k].author)==0 && arr_book[k].quantity>0)
             {
                 printf("Found the book you were looking for!\n\n");
                 printf("ID\tName\tAuthor\tQuantity\tPrice\n");
                 printf("%d\t%s\t%s\t%d\t\t%.2f\n",
                 arr_book[k].id,arr_book[k].name,arr_book[k].author, arr_book[k].quantity, arr_book[k].price);
                 found =1;
-                k++;
+            }
             }
             if (found ==0)
             {
-                printf("Sorry book not found");
+                printf("Sorry book not found\n");
             }
         }
 
@@ -228,7 +233,7 @@ int main()
         }
         if (found ==0)
         {
-            printf("Sorry book not found");
+            printf("Sorry book not found\n");
         }
         break;
     default:
