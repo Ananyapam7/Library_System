@@ -15,18 +15,44 @@ The system should have an interactive interface. It should show the current stat
 In addition, a search facility should be present for both these modes allowing free-text search in general and also for specific fields of a book.
 
 ## Documentation
-This code is written on Windows 10 operating system and is compiled using the gcc compiler provided by Dev C++
+This code is written on Windows 10 operating system and is compiled using the gcc compiler provided by Dev C++. Since the code used windows.h as a header for defining the gotoxy() function, it will not compile on linux systems.
 
-### Header Files
-#### <windows.h>
+### Header Files and standard functions
+### <windows.h>
+Structures and Functions
+1. COORD = {x,y} - Defines the coordinates of a character cell in a console screen buffer
+2. SetConsoleCursorPosition() - Function for setting the console in the required position.
 
-#### <conio.h>
+### <conio.h>
+1. getch() - It reads character from keyboard
+2. getche() - It reads character from keyboard and displays the outpu on the output screen
 
-#### <stdio.h>
+### <stdio.h>
+1. printf() - This function is used to print the character, string, float, integer, octal and hexadecimal values onto the output screen
+2. scanf() - This function is used to read a character, string, numeric data from keyboard.
+3. fopen() - This function is used to open a file to perform various operations which include reading, writing etc. along with various modes. If the file exists then the particular file is opened else a new file is created.
+4. fclose() - Closes an opened file
+5. putch()  - Writes a character to file
+6. fseek()	- Moves file pointer position to given location
+7. SEEK_CUR	- Moves file pointer position to given location
+8. SEEK_END	- Moves file pointer position to the end of file
+9. ftell() -	Gives current position of file pointer
+10. rewind() -	Moves file pointer position to the beginning of the file
+11. remove() - 	Deletes a file
+12. fflush() - Flushes a file
 
-#### <stdlib.h>
+### <stdlib.h>
+1. exit(0) - For exiting the program and closing the application.
 
-#### <string.h>
+### <string.h>
+1. strcmp(str1, str2) - Used for comparing two strings. Returns 0 if str1 is same as str2. Returns <0 if strl < str2. Returns >0 if str1 > str2
+
+### Global Files
+
+```C
+FILE *fp,*ft,*fs;
+```
+These are the 3 files that are accessible globally. ft is used a temporary file. fp is used as the file which handles the "library.dat file". fs is used for keeping track of the issued books in the "Issued.dat" file.
 
 ### Control Flow
 The system begins by calling password() which then checks if the person is a user or an admin by verifying a valid username and password and opens the menu accordingly.
@@ -205,6 +231,114 @@ adminmenu();
 ```
 
 ##### void searchbooks()
+Searchbooks is the function that searches books by their ID or NAME. First it asks the user for the choice whether to search by name or by ID,then opens the file 'library_file.dat ' in reading mode and searches the book in the file (using switch we distinguish the cases'search by ID,and the case 'search by name), for the case 'search by ID ,it ask the user for ID, and check this with ID of books in file library_file.dat, if the check is successful, it returns the message "The Book is available", along with the id, name, auther, quantity, and price of the book,and assign 't' to variable Findbook, now if check is usuccessful ,checks the condition if(findbook!='t') and  returns 'No Record Found', and asks user for different search. 
+```C
+
+void searchbooks()
+{
+system("cls");
+int d;
+printf("Search Books");
+gotoxy(20,10);
+printf(" 1. Search By ID");
+gotoxy(20,14);
+printf(" 2. Search By Name");
+gotoxy(15,20);
+printf("Enter Your Choice");
+fp=fopen("library_file.dat","rb+"); //open file for reading propose
+rewind(fp);   //move pointer at the begining of file
+switch(getch())
+{
+case '1':
+{
+system("cls");
+gotoxy(25,4);
+printf("Search Books By Id");
+gotoxy(20,5);
+printf("Enter the book id:");
+scanf("%d",&d);
+while(fread(&a,sizeof(a),1,fp)==1)
+{
+if(a.id==d)
+{
+gotoxy(20,7);
+printf("The Book is available");
+gotoxy(20,9);
+printf("ID:%d",a.id);
+gotoxy(20,10);
+printf("Name:%s",a.name);
+gotoxy(20,11);
+printf("Author:%s ",a.author);
+gotoxy(20,12);
+printf("Qantity:%d ",a.quantity);
+gotoxy(20,13);
+printf("Price:Rs.%.2f",a.price);
+findbook='t';
+}
+
+}
+if(findbook!='t')  //checks whether conditiion enters inside loop or not
+{
+gotoxy(22,9);printf("\aNo Record Found");
+}
+gotoxy(20,17);
+printf("Try another search?(Y/N)");
+if(getch()=='y')
+searchbooks();
+else
+adminmenu();
+break;
+}
+case '2':
+{
+char s[15];
+system("cls");
+gotoxy(25,4);
+printf("Search Books By Name");
+gotoxy(20,5);
+printf("Enter Book Name:");
+scanf("%s",s);
+int d=0;
+while(fread(&a,sizeof(a),1,fp)==1)
+{
+if(strcmp(a.name,(s))==0) //checks whether a.name is equal to s or not
+{
+gotoxy(20,7);
+printf("The Book is available");
+gotoxy(20,9);
+printf("ID:%d",a.id);
+gotoxy(20,10);
+printf("Name:%s",a.name);
+gotoxy(20,11);
+printf("Author:%s",a.author);
+gotoxy(20,12);
+printf("Quantity:%d",a.quantity);
+gotoxy(20,13);
+printf("Price:Rs.%.2f",a.price);
+d++;
+}
+}
+if(d==0)
+{
+gotoxy(22,9);printf("\aNo Record Found");
+}
+gotoxy(20,17);
+printf("Try another search?(Y/N)");
+if(getch()=='y')
+searchbooks();
+else
+adminmenu();
+break;
+}
+default :
+getch();
+searchbooks();
+}
+fclose(fp);
+}
+
+
+```
 
 
 ##### void updatebooks()
@@ -341,3 +475,8 @@ Abhay Kumar
 Praful Rahangdale
 
 Ananyapam De
+
+#### Citations:
+1. Registered User: orbitz on https://cboard.cprogramming.com/ for void gotoxy()
+2. https://stackoverflow.com/ for debugging help
+3. Project Dev C++ for IDE
