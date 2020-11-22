@@ -126,7 +126,8 @@ This function will be called after the user logs in the system. It has two funct
 ### void issuebooks()
 This function is used to issue books from the library database. It doesn't take any argument and doesn't return any value. We use a while loop to keep using this functionality as many times as we want, the loop uses the a character string as control. When the value of the string is 'y', the loop runs, and when not, it terminates. At the end of each execution of the loop body, the function asks for a value of this control string in the console using getche(), the user enters 'y' or 'n' as instructed by the line displayed in console, and the loop body is executed or not entered accordingly.
 The purpose of this while loop is to check the book Id entered by the user in console against the library database file and verify if the Id is there in the database. If not, the function will display "No record found" on console, otherwise it will proceed to display "The book record is available" on console, and will also display the name and number of copies of the book available in the library. It will also display the date of issue , and due date for return along with a message "The BOOK of ID * is issued" with the Id of the book in the blanks. 
-The due date will be given according to number of copies available (3 x the copies available), and number of copies available in library will be decreased by 1 once a book is issued.
+The due date will be given according to number of copies available (3 x the copies available), and number of copies available in library will be decreased by 1 once a book is issued. We have added this book previously, which we will be issuing now.
+![AddIssue](./shots/add_issue.png)
 ![Issue](./shots/issue.png)
 
 ### void returnbooks()
@@ -248,6 +249,7 @@ adminmenu();
 ```
 
 ![Delete](./shots/delete.png)
+![DeleteConfirm](./shots/recorddeleted.png)
 
 ### void searchbooks()
 Searchbooks is the function that searches books by their ID or NAME. First it asks the user for the choice whether to search by name or by ID,then opens the file 'library_file.dat ' in reading mode and searches the book in the file (using switch we distinguish the cases'search by ID,and the case 'search by name), for the case 'search by ID ,it ask the user for ID, and check this with ID of books in file library_file.dat, if the check is successful, it returns the message "The Book is available", along with the id, name, auther, quantity, and price of the book,and assign 't' to variable Findbook, now if check is usuccessful ,checks the condition if(findbook!='t') and  returns 'No Record Found', and asks user for different search. 
