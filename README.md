@@ -1,5 +1,8 @@
 # Library Management System in C 
 Course: CS3101
+
+Github Repo: https://github.com/Ananyapam7/Library_System
+Website: https://ananyapam7.github.io/Library_System/
 ##### Requirements:
 Design an interactive library system in C programming language. It should have two modes of access (i) Admin and (ii) User. There should be unique login ids for each. The system should ask for the login id and check it against a list. The admin and user ids for a person should be different. A person without a valid id should not be allowed to access the library. An Admin should typically be the librarian (or others responsible for the library). Users can be students or faculties.
 
