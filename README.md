@@ -357,6 +357,44 @@ fclose(fp);
 ```
 ![Search](./shots/search.png)
 
+### void viewbooks()
+This function is used for viewing books
+```C
+void viewbooks(void)  //show the list of book persists in library
+{
+int i=0,j;
+system("cls");
+gotoxy(1,1);
+printf("===================Book List=====================");
+gotoxy(2,2);
+printf(" ID    BOOK NAME     AUTHOR       QTY     PRICE ");
+j=4;
+fp=fopen("library_file.dat","rb");
+while(fread(&a,sizeof(a),1,fp)==1)
+{
+gotoxy(1,j);
+printf("%d",a.id);
+gotoxy(12,j);
+printf("%s",a.name);
+gotoxy(26,j);
+printf("%s",a.author);
+gotoxy(40,j);
+printf("%d",a.quantity);
+gotoxy(47,j);
+printf("%.2f",a.price);
+printf("\n\n");
+j++;
+i=i+a.quantity;
+}
+gotoxy(3,25);
+printf("Total Books =%d",i);
+fclose(fp);
+gotoxy(35,25);
+returnfunc();
+}
+```
+![View](./shots/view.png)
+
 ### void updatebooks()
 This function is accesible to admin only. The admin needs to input the number preceding "Update Book's Record" (in this case 5) in the MAIN MENU. Then enter the id of the book to whose record need to be updated. Next, enter the new name (if it is desired to keep the previous name, enter the previous name), new author, new quantity and the new price.
 ```C
