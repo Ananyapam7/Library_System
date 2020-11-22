@@ -249,7 +249,7 @@ adminmenu();
 ```
 
 ![Delete](./shots/delete.png)
-![DeleteConfirm](./shots/recorddeleted.png)
+![DeleteConfirm](./shots/record_deleted.png)
 
 ### void searchbooks()
 Searchbooks is the function that searches books by their ID or NAME. First it asks the user for the choice whether to search by name or by ID,then opens the file 'library_file.dat ' in reading mode and searches the book in the file (using switch we distinguish the cases'search by ID,and the case 'search by name), for the case 'search by ID ,it ask the user for ID, and check this with ID of books in file library_file.dat, if the check is successful, it returns the message "The Book is available", along with the id, name, auther, quantity, and price of the book,and assign 't' to variable Findbook, now if check is usuccessful ,checks the condition if(findbook!='t') and  returns 'No Record Found', and asks user for different search. 
