@@ -526,13 +526,13 @@ Divyanshu Kumar: Add(), Delete(), Documentation
 
 Arundhati Roy: Issue(), Return(), Documentation
 
-Sanwayee Biswas: Documentation, Debugging
+Sanwayee Biswas: Documentation, Login, Debugging
 
 Abhay Kumar: Handling structures, gotoxy(), Documentation
 
-Praful Rahangdale: Update(), Search(), verifyid(), Documentation, Debugging
+Praful Rahangdale: Search(), verifyid(), Documentation, Debugging
 
-Ananyapam De: All the above and the remaining functions, designing control flow of the code, ensuring succesful compilation, Debugging, Documentation
+Ananyapam De: All the above and the remaining functions, designing control flow of the system, ensuring succesful compilation, Debugging, Documentation
 
 #### Citations:
 1. Registered User: orbitz on https://cboard.cprogramming.com/ for void gotoxy()
