@@ -481,7 +481,7 @@ Abhay Kumar: Structures, gotoxy(), Header files Documentation
 
 Praful Rahangdale: Update(), Search(), verifyid(), Documentation, Debugging
 
-Ananyapam De: All the above and the remaining functions, Ensuring succesful compilation, Debugging, Documentation
+Ananyapam De: All the above and the remaining functions, designing control flow of the code, ensuring succesful compilation, Debugging, Documentation
 
 #### Citations:
 1. Registered User: orbitz on https://cboard.cprogramming.com/ for void gotoxy()
