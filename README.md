@@ -487,7 +487,7 @@ Arundhati Roy: Issue(), Return(), Documentation
 
 Sanwayee Biswas: Documentation, Debugging
 
-Abhay Kumar: Structures, gotoxy(), Header files Documentation
+Abhay Kumar: Handling structures, gotoxy(), Documentation
 
 Praful Rahangdale: Update(), Search(), verifyid(), Documentation, Debugging
 
