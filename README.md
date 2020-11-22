@@ -116,19 +116,22 @@ password();
 }
 }
 ```
+![Password](./shots/password.png)
 
 ### void usermenu()
 This function will be called after the user logs in the system. It has two functions inside it. 
-
+![Usermenu](./shots/usermenu.png)
 
 ### void issuebooks()
 This function is used to issue books from the library database. It doesn't take any argument and doesn't return any value. We use a while loop to keep using this functionality as many times as we want, the loop uses the a character string as control. When the value of the string is 'y', the loop runs, and when not, it terminates. At the end of each execution of the loop body, the function asks for a value of this control string in the console using getche(), the user enters 'y' or 'n' as instructed by the line displayed in console, and the loop body is executed or not entered accordingly.
 The purpose of this while loop is to check the book Id entered by the user in console against the library database file and verify if the Id is there in the database. If not, the function will display "No record found" on console, otherwise it will proceed to display "The book record is available" on console, and will also display the name and number of copies of the book available in the library. It will also display the date of issue , and due date for return along with a message "The BOOK of ID * is issued" with the Id of the book in the blanks. 
 The due date will be given according to number of copies available (3 x the copies available), and number of copies available in library will be decreased by 1 once a book is issued.
+![Issue](./shots/issue.png)
 
 ### void returnbooks()
 This function is used to return issued books to the library database. It doesn't take any argument, and doesn't return any value. We use a while loop to keep using this functionality as many times as we want, the loop uses the a character string as control. When the value of the string is 'y', the loop runs, and when not, it terminates. At the end of each execution of the loop body, the function asks for a value of this control string in the console using getch(), the user enters 'y' or 'n' as instructed by the line displayed in console, and the loop body is executed or not entered accordingly.
 The purpose of this while loop is to check the book Id entered by the user in console against the library database file and verify if the Id is there in the database. If not, the function will display "No record is found" on console, otherwise it will proceed to increase the quantity of books of given Id by 1 in database, and display a message about the return being successful.
+![Return](./shots/return.png)
 
 ### void adminmenu()
 This function will is called after the admin enters valid credentials to log in to the system to further use the following functions :
@@ -138,6 +141,8 @@ This function will is called after the admin enters valid credentials to log in 
 4. View Book List
 5. Update Book's Record
 6. Closing the application
+
+![Adminmenu](./shots/adminmenu.png)
 
 ### void addbooks()
 This function is accessible to admin only. To access this function the admin needs to input the number preceding "Add Books" (in this case 1) in the MAIN MENU. After chosing "Add Books", input "Book ID"(integer type), Book Name, Author, Quantity and Price. The information of the books is stored in the binary file "library_file.dat".
@@ -165,6 +170,7 @@ addbooks();
 }
 }
 ```
+![Add](./shots/add.png)
 
 ##### void deletebooks()
 This function is accessible to admin only. To access this function the admin needs to input the number preceding "Delete Books" (in this case 2) in the MAIN MENU. Afterwards enter the id of the book to be deleted. Hit "Y" to confirm deletion.
@@ -239,6 +245,8 @@ gotoxy(10,15);
 adminmenu();
 }
 ```
+
+![Delete](./shots/delete.png)
 
 ### void searchbooks()
 Searchbooks is the function that searches books by their ID or NAME. First it asks the user for the choice whether to search by name or by ID,then opens the file 'library_file.dat ' in reading mode and searches the book in the file (using switch we distinguish the cases'search by ID,and the case 'search by name), for the case 'search by ID ,it ask the user for ID, and check this with ID of books in file library_file.dat, if the check is successful, it returns the message "The Book is available", along with the id, name, auther, quantity, and price of the book,and assign 't' to variable Findbook, now if check is usuccessful ,checks the condition if(findbook!='t') and  returns 'No Record Found', and asks user for different search. 
@@ -347,6 +355,7 @@ searchbooks();
 fclose(fp);
 }
 ```
+![Search](./shots/search.png)
 
 ### void updatebooks()
 This function is accesible to admin only. The admin needs to input the number preceding "Update Book's Record" (in this case 5) in the MAIN MENU. Then enter the id of the book to whose record need to be updated. Next, enter the new name (if it is desired to keep the previous name, enter the previous name), new author, new quantity and the new price.
@@ -403,6 +412,7 @@ another=getch() ;
 returnfunc();
 }
 ```
+![Upadte](./shots/update.png)
 
 ### Other User-Defined Functions
 
