@@ -60,7 +60,7 @@ These are the 3 files that are accessible globally. ft is used a temporary file.
 ### Control Flow
 The system begins by calling password() which then checks if the person is a user or an admin by verifying a valid username and password and opens the menu accordingly.
 
-#### void password()
+### void password()
 This function is used by the admin and user to login into system. They are required to enter user id and password before they are allowed to enter the system .The user id and password will be verified and if invalid id is there user or admin is  not allowed to enter in the system.
 If valid username and password is entered by the user and admin, they will be allowed to go to the usermenu and adminmenu respectively. Note that this is not a secure way of entering passwords as no hashing has been used and hence should not be implimented in commercial systems.
 ```C
@@ -115,15 +115,20 @@ password();
 }
 ```
 
-#### void usermenu()
+### void usermenu()
 This function will be called after the user logs in the system. It has two functions inside it. 
 
 
-##### void issuebooks()
+### void issuebooks()
+This function is used to issue books from the library database. It doesn't take any argument and doesn't return any value. We use a while loop to keep using this functionality as many times as we want, the loop uses the a character string as control. When the value of the string is 'y', the loop runs, and when not, it terminates. At the end of each execution of the loop body, the function asks for a value of this control string in the console using getche(), the user enters 'y' or 'n' as instructed by the line displayed in console, and the loop body is executed or not entered accordingly.
+The purpose of this while loop is to check the book Id entered by the user in console against the library database file and verify if the Id is there in the database. If not, the function will display "No record found" on console, otherwise it will proceed to display "The book record is available" on console, and will also display the name and number of copies of the book available in the library. It will also display the date of issue , and due date for return along with a message "The BOOK of ID * is issued" with the Id of the book in the blanks. 
+The due date will be given according to number of copies available (3 x the copies available), and number of copies available in library will be decreased by 1 once a book is issued.
 
-##### void returnbooks()
+### void returnbooks()
+This function is used to return issued books to the library database. It doesn't take any argument, and doesn't return any value. We use a while loop to keep using this functionality as many times as we want, the loop uses the a character string as control. When the value of the string is 'y', the loop runs, and when not, it terminates. At the end of each execution of the loop body, the function asks for a value of this control string in the console using getch(), the user enters 'y' or 'n' as instructed by the line displayed in console, and the loop body is executed or not entered accordingly.
+The purpose of this while loop is to check the book Id entered by the user in console against the library database file and verify if the Id is there in the database. If not, the function will display "No record is found" on console, otherwise it will proceed to increase the quantity of books of given Id by 1 in database, and display a message about the return being successful.
 
-#### void adminmenu()
+### void adminmenu()
 This function will is called after the admin enters valid credentials to log in to the system to further use the following functions :
 1. Add Books
 2. Delete Books
@@ -132,7 +137,7 @@ This function will is called after the admin enters valid credentials to log in 
 5. Update Book's Record
 6. Closing the application
 
-##### void addbooks()
+### void addbooks()
 This function is accessible to admin only. To access this function the admin needs to input the number preceding "Add Books" (in this case 1) in the MAIN MENU. After chosing "Add Books", input "Book ID"(integer type), Book Name, Author, Quantity and Price. The information of the books is stored in the binary file "library_file.dat".
 ```C
 void addbooks(void)
@@ -233,7 +238,7 @@ adminmenu();
 }
 ```
 
-##### void searchbooks()
+### void searchbooks()
 Searchbooks is the function that searches books by their ID or NAME. First it asks the user for the choice whether to search by name or by ID,then opens the file 'library_file.dat ' in reading mode and searches the book in the file (using switch we distinguish the cases'search by ID,and the case 'search by name), for the case 'search by ID ,it ask the user for ID, and check this with ID of books in file library_file.dat, if the check is successful, it returns the message "The Book is available", along with the id, name, auther, quantity, and price of the book,and assign 't' to variable Findbook, now if check is usuccessful ,checks the condition if(findbook!='t') and  returns 'No Record Found', and asks user for different search. 
 ```C
 
@@ -339,12 +344,9 @@ searchbooks();
 }
 fclose(fp);
 }
-
-
 ```
 
-
-##### void updatebooks()
+### void updatebooks()
 This function is accesible to admin only. The admin needs to input the number preceding "Update Book's Record" (in this case 5) in the MAIN MENU. Then enter the id of the book to whose record need to be updated. Next, enter the new name (if it is desired to keep the previous name, enter the previous name), new author, new quantity and the new price.
 ```C
 void editbooks(void)  
@@ -402,7 +404,7 @@ returnfunc();
 
 ### Other User-Defined Functions
 
-#### void gotoxy (int x, int y)
+### void gotoxy (int x, int y)
 This is used in various parts of the program to move the output cursor to different parts of the screen mainly for the aesthetics.
 ```C
 COORD coord = {0, 0};
@@ -412,7 +414,7 @@ coord.X = x; coord.Y = y; // X and Y coordinates
 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 ```
-#### void returnfunc()
+### void returnfunc()
 ```C
 void returnfunc()
 {
@@ -427,7 +429,7 @@ goto a;
 }
 ```
 
-#### int verifyid(int t)  
+### int verifyid(int t)  
 This function is to check whether the book already exists in the library or not
 ```C
 int verifyid(int t)  
@@ -467,17 +469,17 @@ struct Date duedate;
 ```
 
 #### Contributors and Modularizations:
-Divyanshu Kumar
+Divyanshu Kumar: Add(), Delete(), Documentation
 
-Arundhati Roy
+Arundhati Roy: Issue(), Return(), Documentation
 
-Sanwayee Biswas
+Sanwayee Biswas: Documentation, Debugging
 
-Abhay Kumar
+Abhay Kumar: Structures, gotoxy(), Header files Documentation
 
-Praful Rahangdale
+Praful Rahangdale: Update(), Search(), verifyid(), Documentation, Debugging
 
-Ananyapam De
+Ananyapam De: All the above and the remaining functions, Ensuring succesful compilation, Debugging, Documentation
 
 #### Citations:
 1. Registered User: orbitz on https://cboard.cprogramming.com/ for void gotoxy()
